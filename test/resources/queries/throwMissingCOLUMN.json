@@ -1,0 +1,16 @@
+{
+	"title": "perform query function and throw InsightError if column is missing",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"courses_avg": 97
+			}
+		},
+		"OPTIONS": {
+			"ORDER": "courses_avg"
+		}
+	},
+
+	"errorExpected": true,
+	"expected": "InsightError"
+}

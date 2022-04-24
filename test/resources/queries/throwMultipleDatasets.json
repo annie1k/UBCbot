@@ -1,0 +1,32 @@
+{
+  "title": "perform query function and throw InsightError if input datasets > 1",
+  "input": {
+
+    "WHERE":{
+
+      "GT":{
+
+        "courses_avg":97
+
+      }
+
+    },
+
+    "OPTIONS":{
+
+      "COLUMNS":[
+
+        "courses_dept",
+
+        "courses2_avg"
+
+      ],
+
+      "ORDER":"courses_avg"
+
+    }
+
+  } ,
+  "errorExpected": true,
+  "expected": "InsightError"
+}

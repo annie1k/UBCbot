@@ -1,0 +1,13 @@
+{
+	"title": "perform query function and throw InsightError if missing OPTIONS",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"courses_avg": 97
+			}
+		}
+	},
+
+	"errorExpected": true,
+	"expected": "InsightError"
+}

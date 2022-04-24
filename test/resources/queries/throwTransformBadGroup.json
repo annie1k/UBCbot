@@ -1,0 +1,39 @@
+{
+	"title": "invalid group",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"courses_dept": "f*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["minAvg", "courses_dept", "maxAvg", "maxYear"],
+			"ORDER": {
+				"dir": "UP",
+				"keys": ["maxYear", "minAvg"]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["courses_deptXXX"],
+			"APPLY": [
+				{
+					"minAvg": {
+						"MIN": "courses_avg"
+					}
+				},
+				{
+					"maxAvg": {
+						"MAX": "courses_avg"
+					}
+				},
+				{
+					"maxYear": {
+						"MAX": "courses_year"
+					}
+				}
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

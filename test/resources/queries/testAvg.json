@@ -1,0 +1,41 @@
+{
+	"title": "test avg",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["courses_year", "overallAvg", "cnt"],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": ["courses_year", "overallAvg"]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["courses_year"],
+			"APPLY": [
+				{
+					"overallAvg": {
+						"AVG": "courses_avg"
+					}
+				},
+				{
+					"cnt": {
+						"COUNT": "courses_uuid"
+					}
+				}
+			]
+		}
+	},
+	"expected": [
+		{"courses_year": 2016, "overallAvg": 78.17, "cnt": 965},
+		{"courses_year": 2015, "overallAvg": 78.22, "cnt": 5475},
+		{"courses_year": 2014, "overallAvg": 77.96, "cnt": 5326},
+		{"courses_year": 2013, "overallAvg": 78.01, "cnt": 4990},
+		{"courses_year": 2012, "overallAvg": 77.81, "cnt": 4808},
+		{"courses_year": 2011, "overallAvg": 77.67, "cnt": 4484},
+		{"courses_year": 2010, "overallAvg": 77.48, "cnt": 4305},
+		{"courses_year": 2009, "overallAvg": 77, "cnt": 3950},
+		{"courses_year": 2008, "overallAvg": 77.16, "cnt": 3006},
+		{"courses_year": 2007, "overallAvg": 76.27, "cnt": 2682},
+		{"courses_year": 1900, "overallAvg": 79.26, "cnt": 24621}
+	]
+}

@@ -1,0 +1,79 @@
+{
+	"title": "test lat lon",
+	"input": {
+		"WHERE": {},
+		"OPTIONS": {
+			"COLUMNS": ["lat", "lon", "rooms_shortname", "cnt"],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": ["cnt"]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["rooms_shortname"],
+			"APPLY": [
+				{
+					"lat": {
+						"AVG": "rooms_lat"
+					}
+				},
+				{
+					"lon": {
+						"AVG": "rooms_lon"
+					}
+				},
+				{
+					"cnt": {
+						"COUNT": "rooms_name"
+					}
+				}
+			]
+		}
+	},
+	"expected": [
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "BUCH", "cnt": 61},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "ANGU", "cnt": 28},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "SCRF", "cnt": 22},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "SWNG", "cnt": 22},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "ORCH", "cnt": 21},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "MCML", "cnt": 19},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "IBLC", "cnt": 18},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "WOOD", "cnt": 16},
+		{"lat": 49.26, "lon": -123.24, "rooms_shortname": "PHRM", "cnt": 11},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "FSC", "cnt": 10},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "GEOG", "cnt": 8},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "MATH", "cnt": 8},
+		{"lat": 49.26, "lon": -123.26, "rooms_shortname": "PCOH", "cnt": 8},
+		{"lat": 49.26, "lon": -123.26, "rooms_shortname": "SOWK", "cnt": 7},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "CHEM", "cnt": 6},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "CEME", "cnt": 6},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "FNH", "cnt": 6},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "LASR", "cnt": 6},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "HENN", "cnt": 6},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "MCLD", "cnt": 6},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "SPPH", "cnt": 6},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "ALRD", "cnt": 5},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "DMP", "cnt": 5},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "ANSO", "cnt": 4},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "BIOL", "cnt": 4},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "HEBB", "cnt": 4},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "LSK", "cnt": 4},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "UCLL", "cnt": 4},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "CHBE", "cnt": 3},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "ESB", "cnt": 3},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "FORW", "cnt": 3},
+		{"lat": 49.26, "lon": -123.24, "rooms_shortname": "LSC", "cnt": 3},
+		{"lat": 49.26, "lon": -123.24, "rooms_shortname": "OSBO", "cnt": 3},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "SRC", "cnt": 3},
+		{"lat": 49.27, "lon": -123.26, "rooms_shortname": "AUDX", "cnt": 2},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "BRKX", "cnt": 2},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "IONA", "cnt": 2},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "MGYM", "cnt": 2},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "WESB", "cnt": 2},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "AERL", "cnt": 1},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "CIRS", "cnt": 1},
+		{"lat": 49.26, "lon": -123.25, "rooms_shortname": "EOSM", "cnt": 1},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "FRDM", "cnt": 1},
+		{"lat": 49.27, "lon": -123.25, "rooms_shortname": "MATX", "cnt": 1}
+	]
+}

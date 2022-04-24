@@ -1,0 +1,64 @@
+{
+	"title": "test summing",
+	"input": {
+		"WHERE": {
+			"OR": [
+				{
+					"AND": [
+						{
+							"GT": {
+								"courses_avg": 90
+							}
+						},
+						{
+							"IS": {
+								"courses_dept": "adhe"
+							}
+						}
+					]
+				},
+				{
+					"EQ": {
+						"courses_avg": 95
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": ["courses_id", "sumAvg"],
+			"ORDER": "sumAvg"
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["courses_id"],
+			"APPLY": [
+				{
+					"sumAvg": {
+						"SUM": "courses_avg"
+					}
+				}
+			]
+		}
+	},
+	"expected": [
+		{"courses_id": "499", "sumAvg": 95},
+		{"courses_id": "549", "sumAvg": 95},
+		{"courses_id": "570", "sumAvg": 95},
+		{"courses_id": "606", "sumAvg": 95},
+		{"courses_id": "412", "sumAvg": 180.34},
+		{"courses_id": "424", "sumAvg": 190},
+		{"courses_id": "473", "sumAvg": 190},
+		{"courses_id": "500", "sumAvg": 190},
+		{"courses_id": "516", "sumAvg": 190},
+		{"courses_id": "532", "sumAvg": 190},
+		{"courses_id": "535", "sumAvg": 190},
+		{"courses_id": "564", "sumAvg": 190},
+		{"courses_id": "589", "sumAvg": 190},
+		{"courses_id": "597", "sumAvg": 190},
+		{"courses_id": "682", "sumAvg": 190},
+		{"courses_id": "501", "sumAvg": 285},
+		{"courses_id": "329", "sumAvg": 462.82},
+		{"courses_id": "553", "sumAvg": 570},
+		{"courses_id": "330", "sumAvg": 727.67},
+		{"courses_id": "599", "sumAvg": 760}
+	]
+}

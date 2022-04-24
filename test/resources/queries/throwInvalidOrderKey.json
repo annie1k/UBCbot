@@ -1,0 +1,17 @@
+{
+	"title": "perform query function and throw InsightError if order key is invalid",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"courses_avg": 97
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["courses_dept", "courses_avg"],
+			"ORDER": "courses_av"
+		}
+	},
+
+	"errorExpected": true,
+	"expected": "InsightError"
+}

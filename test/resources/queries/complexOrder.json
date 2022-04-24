@@ -1,0 +1,52 @@
+{
+	"title": "Complex order",
+	"input": {
+		"WHERE": {
+			"IS": {
+				"courses_dept": "f*"
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": ["minAvg", "courses_dept", "maxAvg", "maxYear"],
+			"ORDER": {
+				"dir": "UP",
+				"keys": ["maxYear", "minAvg"]
+			}
+		},
+		"TRANSFORMATIONS": {
+			"GROUP": ["courses_dept"],
+			"APPLY": [
+				{
+					"minAvg": {
+						"MIN": "courses_avg"
+					}
+				},
+				{
+					"maxAvg": {
+						"MAX": "courses_avg"
+					}
+				},
+				{
+					"maxYear": {
+						"MAX": "courses_year"
+					}
+				}
+			]
+		}
+	},
+	"expected": [
+		{"minAvg": 72.18, "courses_dept": "fnis", "maxAvg": 84.78, "maxYear": 2015},
+		{"minAvg": 75.63, "courses_dept": "fhis", "maxAvg": 79.89, "maxYear": 2015},
+		{"minAvg": 78, "courses_dept": "fish", "maxAvg": 94, "maxYear": 2015},
+		{"minAvg": 0, "courses_dept": "frst", "maxAvg": 96.36, "maxYear": 2016},
+		{"minAvg": 4.5, "courses_dept": "fopr", "maxAvg": 91, "maxYear": 2016},
+		{"minAvg": 57.2, "courses_dept": "fre", "maxAvg": 88.47, "maxYear": 2016},
+		{"minAvg": 61.36, "courses_dept": "fren", "maxAvg": 88.5, "maxYear": 2016},
+		{"minAvg": 61.97, "courses_dept": "fmst", "maxAvg": 86, "maxYear": 2016},
+		{"minAvg": 65.44, "courses_dept": "fnh", "maxAvg": 93.05, "maxYear": 2016},
+		{"minAvg": 67.11, "courses_dept": "fist", "maxAvg": 85.38, "maxYear": 2016},
+		{"minAvg": 70.3, "courses_dept": "fipr", "maxAvg": 96.4, "maxYear": 2016},
+		{"minAvg": 72.07, "courses_dept": "food", "maxAvg": 90.68, "maxYear": 2016},
+		{"minAvg": 73, "courses_dept": "fnel", "maxAvg": 87.5, "maxYear": 2016}
+	]
+}

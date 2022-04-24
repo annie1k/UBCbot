@@ -1,0 +1,6 @@
+{
+	"title": "perform query function and throw InsightError if query is not an object",
+	"input": "hi",
+	"errorExpected": true,
+	"expected": "InsightError"
+}

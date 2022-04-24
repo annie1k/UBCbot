@@ -1,0 +1,17 @@
+{
+	"title": "perform query function and throw InsightError if columns is empty",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"courses_avg": 97
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [],
+			"ORDER": "courses_avg"
+		}
+	},
+
+	"errorExpected": true,
+	"expected": "InsightError"
+}

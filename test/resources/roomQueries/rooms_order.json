@@ -1,0 +1,32 @@
+{
+	"title": "rooms order",
+	"input": {
+		"WHERE": {
+			"AND": [
+				{
+					"IS": {
+						"rooms_furniture": "*Tables*"
+					}
+				},
+				{
+					"GT": {
+						"rooms_seats": 300
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": ["rooms_shortname", "rooms_seats", "rooms_name"],
+			"ORDER": {
+				"dir": "DOWN",
+				"keys": ["rooms_seats", "rooms_name"]
+			}
+		}
+	},
+	"expected": [
+		{"rooms_shortname": "OSBO", "rooms_seats": 442, "rooms_name": "OSBO_A"},
+		{"rooms_shortname": "HEBB", "rooms_seats": 375, "rooms_name": "HEBB_100"},
+		{"rooms_shortname": "LSC", "rooms_seats": 350, "rooms_name": "LSC_1002"},
+		{"rooms_shortname": "LSC", "rooms_seats": 350, "rooms_name": "LSC_1001"}
+	]
+}

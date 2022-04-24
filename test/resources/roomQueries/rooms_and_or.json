@@ -1,0 +1,13 @@
+{
+	"title": "rooms and or",
+	"input": {
+		"WHERE": {
+			"AND": []
+		},
+		"OPTIONS": {
+			"COLUMNS": ["rooms_lat"]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

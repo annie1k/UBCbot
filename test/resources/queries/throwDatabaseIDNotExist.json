@@ -1,0 +1,19 @@
+{
+  "title": "perform query function and throw InsightError if file is not exist",
+  "input": {
+    "WHERE": {
+      "GT": {
+        "inexist_avg": 97
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "inexist_dept",
+        "inexist_avg"
+      ],
+      "ORDER": "inexist_avg"
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}
